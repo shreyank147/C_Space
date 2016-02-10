@@ -22,7 +22,7 @@ const int POSITIVE_YLIMIT=19;
 const int NEGATIVE_YLIMIT=1;
 const int PLANET_NAME_SIZE=9;
 const int UNIVERSE_ARRAY_SIZE=9;
-HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 ifstream infile;
 ofstream outfile;
 time_t now = time(0);
@@ -70,7 +70,7 @@ int main()
    int moonCounter=0;
    int number_of_planets=0;
    int movePosition=0;
-//   int moonCounter=0;
+   //int moonCounter=0;
    arrX = generateXPosition();
    arrY = generateYPosition();
    costArray = generateCosts();
@@ -112,7 +112,7 @@ int main()
    // gotoX = getXCoord();
    // gotoY = getYCoord();
    drawMap(s.getX(),s.getY(),jupiter.getX(),jupiter.getY(),earth.getX(),earth.getY(),mars.getX(),mars.getY(),ganymede.getX(),ganymede.getY(),moon.getX(),moon.getY(),saturn.getX(),saturn.getY(),neptune.getX(),neptune.getY(),pluto.getX(),pluto.getY(),ceres.getX(),ceres.getY(),sun.getX(),sun.getY(),beltegeuse.getX(),beltegeuse.getY());
-   //drawHUD(moon.getX(),moon.getY(),s);
+   drawHUD(moon.getX(),moon.getY(),s);
    input = drawHUD(moon.getX(),moon.getY(),s);
    travel(input,s);
    moveMoon(moon);
@@ -282,7 +282,7 @@ void checkIfAtPlanet(ship &s,planet &jupiter,planet &earth,planet &mars,planet &
 //********************************************************************************************
 int* generateXPosition()
 {
-    //int i=0;
+    int i=0;
 	int r;
 	int *arrX = new int[30];
 
@@ -522,9 +522,9 @@ int drawHUD(int mx, int my, ship &s)
   int input=0;
 
    cout << "The Moon (m), your home base is located at: "; 
-   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN);
+   //SetConsoleTextAttribute(hOut, FOREGROUND_GREEN);
    cout << mx << ", " << my << " - You are located at: " << s.getX() << ", " << s.getY();
-   SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+   //SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
    cout << "\nStatus - Fuel: " << s.getFuel() << " Spacebucks: " << s.getFunds() << endl;
    cout << "Cargo Hold: Rice: " << s.getRice() << " IRON: " << s.getIron() << " SUGAR: " << s.getSugar() << endl;
    //cout << "What do you want to do? (1 +x 2 -x 3 +y 4 -y -- 8 is quit) ";
